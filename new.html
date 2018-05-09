@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+    <script src="js/jquery-2.2.2.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <style>
+    	.my-page { background:transparent url(img/bi.png) 0 0 no-repeat;background-size: 100%; }   	
+      	.namo{
+    		text-align: center;
+    		margin-top: 6rem;
+    	}
+    </style>
+</head>
+<body>
+	<div data-role="page" class="my-page">
+	 	<div data-role="content">
+	 	   <div class="namo"><img src="img/namo.png" alt="" style="width:200px;height:200px"></div>	 		
+           <input type="button" data-inline="false" value="登录" id="login" onclick="login()">
+           <input type="button" data-inline="false" value="新用户注册" id="register" onclick="register()">
+        </div>
+	</div>
+	
+</body>
+<script type="text/javascript">
+	 function login(){
+	 	window.location.href="login.html";
+	 }
+	 function register(){
+	 	window.location.href="register.html";
+	 }
+</script>
+</html>

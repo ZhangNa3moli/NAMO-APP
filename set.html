@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>set</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+    <script src="js/jquery-2.2.2.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <style>
+    	/*头部栏尾部栏边框*/
+    	.ui-header{
+    		border-width:0;
+    	}
+    	.ui-footer{
+    		border-width:0;
+    	}    	
+    	/*设置的字体颜色*/
+    	body{
+    		color:#FAFFF0;
+    	}
+    	/*头部栏尾部栏颜色*/   	
+    	.ui-bar-inherit{
+    		background-color:#ff6699;
+    		
+    	}
+    	/*头部栏按钮*/
+    	.ui-btn-icon-notext:after{
+    		background-color:rgba(0,0,0,.0);
+    	}
+    	.ui-btn{
+    		border-style:none;
+    		border-color:#DCDCDC;
+    		color:#808069;
+    		
+    	}
+    	/*底部按钮字体*/
+    	#back a{
+    		color:#FAFFF0;
+    	}
+    	.moli li img{  
+    		 border-radius: 50%;  		 
+    		 width:4.5em;
+    		 margin-top: 0.4em;
+    		 margin-left: 0.5rem;
+    	}
+    	.moli li h2{
+    		font-size: 20px;
+    	}
+    	.moli li p{
+    		color:#ff6699;
+    		font-weight: bolder;
+    		font-family: "微软雅黑";
+    		font-size: 14px;;
+    	}
+    	#account{
+    		margin-top:2rem;
+    	}
+    	#area {
+    		margin-top:2rem;
+    		
+    	}
+    	#mine{
+    		margin-top:2rem;
+    	}
+    	#back{
+    		height:3rem;
+    	}
+    	#back ul li a{
+    		list-style: none;
+    		padding-top:1rem;
+    		
+    	}
+    </style>
+</head>
+<body>
+	<div data-role="page" id="page1" data-theme="f">
+		<div data-role="header">
+			<a href="index.html"  rel="external" data-icon="carat-l"  data-iconpos="notext"></a>
+			<h1>设置</h1>			
+		</div>
+		<div data-role="content" >       	
+             <ul data-role="listview" class="moli" >     
+                <li><a href="#"><img src="img/moli.jpg" style="border-radius: 50%;"><h2 id="user"></h2><p>会员名：moli</p></a></li>
+	            <li><a href="#">我的收货地址</a></li>
+	         </ul>
+	        <ul data-role="listview">       
+	            <li id="account"><a href="#">账户与安全</a></li>
+	        </ul>
+	        <ul data-role="listview" >  
+	            <li id="area"><a href="#">地区设置</a></li>
+	            <li><a href="#">音效与通知</a></li>
+	            <li><a href="#">隐私</a></li>
+	            <li><a href="#">通用</a></li>
+	        </ul>
+	        <ul data-role="listview" class="mine"> 
+	            <li id="mine"><a href="#">我的管家</a></li>
+	            <li><a href="#">关于NaMo</a></li>
+             </ul>  
+		</div>
+		
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar" id="back">
+				<ul>
+			       <li><a href="#new.html" rel="external" id="exit">退出当前账户</a></li>
+			    </ul> 
+			</div>
+		</div>
+	</div>
+	
+</body>
+<script type="text/javascript">
+	var username = localStorage.getItem("username");
+	if(!localStorage.getItem("username")){
+		  window.location.href="new.html";
+	}
+	$.ajax({
+			type:'get',
+		 	url:'http://datainfo.duapp.com/shopdata/getuser.php',
+		 	data:{userID:username},
+		 	dataType:'jsonp',
+		 	success:function(data){
+		 		console.log(data);
+		        user.innerHTML=username;
+		      }
+	});
+	
+	$("#exit").on('click',function(){
+		console.log('aa');
+		localStorage.clear();
+	});
+</script>
+</html>

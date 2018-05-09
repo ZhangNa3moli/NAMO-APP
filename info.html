@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>set</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="css/swiper-3.3.1.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <script src="js/jquery-2.2.2.js"></script>
+    <script src="js/swiper-3.3.1.jquery.min.js"></script>
+    <script src="js/swiper.animate1.0.2.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <style>
+    	*{
+    		margin:0;
+    		padding:0;
+    	}
+    	/*头部栏尾部栏边框*/
+    	.ui-header{
+    		border-width:0;
+    	}
+    	.ui-footer{
+    		border-width:0;
+    	}    	
+    	/*头部栏尾部栏样式*/   	
+        .ui-bar-inherit{
+    	  background-color:#ff6699 !important;    		
+    	}  
+    	.ui-title{
+    		color:white;
+    	}	
+    	/*头部栏按钮*/
+    	.ui-btn-icon-notext:after{
+    		background-color:#ff6699;
+    	}
+    	.ui-btn{
+    		border-style:none;
+    		border-color:#DCDCDC;
+    		color:black;
+    	}    	
+        /*内容展示*/
+       .ui-content{
+       	padding:0;
+       }
+       #show{
+       	width:100%;
+       }
+        #info{
+       	    color:black;
+       }
+       #tell{
+       	   font-family: "华文中宋";
+       	   font-size:1.2rem;
+       	   line-height:1.5rem;
+       	   font-weight: bolder; 
+       	   list-style:none;   
+       }
+       /*图*/
+       .swiper-slide img{
+       	width:100%;
+       	height:14rem;
+       }
+       #tell p{
+       	 padding-left:5%;
+       	 padding-right: 5%;
+       }
+       /*价格*/
+      #money{
+      	display: block;
+      	font-weight: bolder;
+      	font-size:30px;;
+      	color:red;
+      	margin-top:0.5rem;
+      }
+      #dis{
+      	display: block;
+      	font-weight: bolder;
+      	font-size:15px;
+      	margin-top:0.5rem;
+      	padding-left: 1%;;
+      	color:darkgrey;
+      }
+      /*列表*/
+     /*第一行*/
+     .ui-content .ui-listview{
+     	margin:0em;
+     }
+     .ui-listview>.ui-li-has-icon>.ui-btn>img:first-child{
+      	position: initial;
+     }
+     /*优惠活动*/
+    #quan{
+    	margin-top:0.5rem;
+    	border-top:1px solid #DCDCDC;
+    	border-bottom:1px solid #DCDCDC;
+    	padding-bottom:0.5rem;
+    }
+    #quan p{
+    	color:black;
+    	font-size:15px; 
+    	font-weight:bolder;  	
+    }
+    #quan img{
+    	width:4.7rem;
+    	height:3.35rem;
+    }
+     .ui-listview>.ui-li-static.ui-li-has-thumb{
+     	padding-left:10%;
+     }
+     .ui-listview>.ui-li-static{
+     	padding:0em 0em; 
+     }
+     #quan2{
+     	padding-left:5%;
+     }
+     #quan3{
+     	padding-left:5%;
+     }
+     /*产品参数*/
+     #argv{
+     	color:black;
+        margin-top:0.5rem;
+     }
+     .ui-btn{
+     	font-weight:initial;
+     }
+     #de{
+     	background: transparent url(img/bgg.png) 0 0 no-repeat !important; background-size: 100% !important;    	
+     }
+     #con{
+     	margin-top:50%;
+     }
+     #ar{
+     	text-decoration:none;
+     	font-size:20px;
+     	line-height:30px;
+     	margin-top:0.5rem;
+     }
+     #goo{
+     	 font-family:'微团雅黑';
+     	 font-size:15px;
+     	 line-height:25px;
+     }
+     /*商品评价*/
+    #com img{
+    	width:4.2em;
+    	margin-top:2%;
+    	margin-left:4%;
+    }
+    time{
+    	float:right;
+    	font-size: 12px;
+   		font-family: "微软雅黑";
+   		font-weight:500;
+    	}
+    /*商品数量*/
+     #btt{
+     	margin-top:0.5rem;
+     	height:2.8rem;
+     	width:100%;
+     	padding-left: 5%;;
+     	border:1px solid  #DCDCDC;
+     }
+     #ba{
+     	height:1.8rem;
+     	width:6rem;
+     	margin-top:2%;
+     }
+     #b1{
+     	float:left;
+     	height:1.8rem;
+     	width:1.6rem;
+     	font-family: "微软雅黑";
+     	font-size:15px;
+     	background-color: #DCDCDC;
+     	font-weight: bolder;
+     	padding-top:0.2rem;
+     	padding-left:0.6rem;
+     	margin-top:0;
+     }
+     #b2{
+     	float:left;
+     	height:1.8rem;
+     	width:1.6rem;
+     	font-family: "微软雅黑";
+     	font-size:15px;
+     	background-color: #DCDCDC;
+     	font-weight: bolder;
+     	padding-top:0.2rem;
+     	padding-left:0.4rem;
+     	margin-left: 0.5rem;
+     	margin-top:0;
+     }
+      #num{
+      	float:left;
+      	height:1.3rem;
+      	width:1.3rem;
+      	text-align: center;
+      	margin-left: 0.5rem;
+      	margin-top: 3%;
+      	border-style:none;
+      }
+    /*底部导航*/
+   #foo li{
+   	   border:1px solid #DCDCDC;
+   	   height:3.7rem;
+   }
+   #n1{
+   	   background-color:#fff;
+   }
+   #n2{
+   	   background-color:#fff;
+   }
+   #n3{
+   	   background-color:#fff;
+   }
+    .ui-navbar>.ui-grid-b>.ui-block-b{
+    	background-color:#ffe817;
+    	height:3.7rem;
+    	padding-top:0.6rem;
+    	
+    }
+    .ui-navbar>.ui-grid-b>.ui-block-c{
+   	    background-color:#ff6699;
+   	    height:3.7rem;
+    	padding-top:0.6rem;
+   }
+   /*导航图片*/
+    .ui-icon-store::after{ background-image:url(img/store.png);}
+    .ui-icon-server::after{ background-image:url(img/server.png);}
+    .ui-icon-desire::after{ background-image:url(img/desire.png);}
+    /*字体*/
+    #bb{
+        font-family: "微软雅黑";
+    	font-weight: bold;
+    }
+    #cc{
+    	font-family: "微软雅黑";
+    	font-weight: bold;
+    }
+    /*悬浮框*/
+   .dialog{
+   	    width:18rem;
+   	    height:2rem;
+   	    border:solid 1px #DDDDDD;
+   	    background-color:#DDDDDD;
+   	    position:absolute;
+   	    right:10%;
+   	    top:60%;
+   	    text-align:center;
+   	    display:none;
+   	    font-family: "微软雅黑";
+   	    font-weight: bold;
+   	    padding-top:0.5rem;
+   	}
+    </style>
+</head>
+<body>
+    <div data-role="page"  id="page1" data-theme="f">
+		<div data-role="header" data-position="fixed">
+			<a href="index.html"  rel="external" data-icon="carat-l"  data-iconpos="notext"></a>
+			<h1>商品详情</h1>
+		</div>
+		<div data-role="content" >       	
+            <div id="show">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img></div>
+                        <div class="swiper-slide"><img></div>
+                        <div class="swiper-slide"><img></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            	<ul id="info"></ul>
+            </div>
+            <ul data-role="listview">
+            	<li data-icon="false"><a  id="first" href="#"><img  id="true" src="img/ensure.png" class="ui-li-icon" />正品保证&nbsp;&nbsp;&nbsp;&nbsp;<img  id="speed" src="img/ensure.png" class="ui-li-icon" />极速退款 &nbsp;&nbsp;&nbsp;&nbsp;<img  id="free" src="img/ensure.png" class="ui-li-icon" />赠运费险</a></li>
+            </ul>
+            <ul data-role="listview">
+            	<li id="quan"><p>优惠活动</p><img id="quan1" src="img/quan1.png"/><img id="quan2" src="img/quan2.png"/><img id="quan3" src="img/quan3.png"/></li>
+            </ul>
+             <div  class="dialog" id="tips" style="display: none;"></div>
+            <ul data-role="listview">
+            	<li id="argv"><a href="#de"  data-rel="dialog" data-transition="slideup">产品参数</a></li>
+                <li><a id="comment" href="#">商品评价 &nbsp;6893</a></li>
+                <li  data-icon="false"><a id="com" href="#"><img src="img/q1.jpg" style="border-radius:60px;"><h2>taotaofz732<time>11-28</time></h2><p id="co">质量很好,快递很给力</p></a></li>
+            </ul>
+            
+             <div id="btt">
+             	<div id='ba'>
+			       <button id="b1" onclick="minus()">-</button>
+			       <input id="num" type="textarea" value="1"/>
+			       <button id="b2" onclick="plus()">+</button>
+			    </div>			   
+		    </div>
+		</div>
+		
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar" id="back" class="ui-navbar">
+				<ul id="foo" class="ui-grid-b">
+					<li id="btn" class="ui-block-a">
+						<ul id="mini" class='ui-grid-b'>
+			                <li class="ui-block-a" id="n1"><a  href="#" data-icon="store">店铺</a></li>
+			                <li class="ui-block-b" id="n2"><a  href="#" data-icon="server">客服</a></li>
+			                <li class="ui-block-c" id="n3"><a  href="#" data-icon="desire">收藏</a></li>
+			            </ul>
+			       </li>			        	
+			       <li  id="gou" class="ui-block-b"><a id="bb" href="#">加入购物车</a></li>	
+			       <li  id="pur" class="ui-block-c"><a id="cc" href="#">立即购买</a></li>				        
+				</ul> 
+			</div>
+		</div>
+	</div>
+	
+	<div data-role="page" id="de">                   
+          <div data-role="content" id="con"> 
+        	 <a  id="ar" href="info.html" rel="external">产品参数</a>
+             <ul id="goo"></ul>            
+          </div>
+    </div> 
+</body>
+<script>
+    //Initialize Swiper 
+    $(document).ready(function(){
+    var myswiper = new Swiper('.swiper-container', {
+        direction:'horizontal',
+        loop:true,
+        pagination: '.swiper-pagination',  
+        autoplay:2000
+      });
+    });
+    
+	var goodId = window.location.hash.slice(1);
+	//console.log(goodId);
+		$.ajax({
+				type:'get',
+				data:{goodsID:goodId},
+				url:'http://datainfo.duapp.com/shopdata/getGoods.php',
+				dataType:'jsonp',
+				success:function(data){
+					console.log(data);	
+					var image = data[0].imgsUrl.split(',',3);
+					var roll = $('.swiper-slide img');
+					$(roll[0]).attr('src',image[2].split('"')[1]);
+					$(roll[1]).attr('src',image[0].split('"')[1]);
+					$(roll[2]).attr('src',image[1].split('"')[1]);
+					$(roll[3]).attr('src',image[2].split('"')[1]);
+					$(roll[4]).attr('src',image[0].split('"')[1]);
+			        $('#info').html($('#info').html()+'<li id="tell" ><p>'+data[0].goodsName+'<span id="money">￥'+data[0].price+'</span>'+'<span id="dis">折扣：'+data[0].discount+'</span></p></li>');
+			        $('#argv').on('click',function(){ //后边跟上#号表示哈希值键值对
+                         console.log(goodId);
+                         $('#goo').html($('#goo').html()+`<li id="intro" goodId=`+data[0].goodsID+`>`+data[0].detail+`</li>`);                         
+				})	        
+			},
+			error:function(){
+		 		alert('error!');
+		 	}
+		});
+		
+		var username = localStorage.getItem("username");
+		$('#gou').click(function(){
+		 $.ajax({
+		 	type:'get',
+		 	url:' http://datainfo.duapp.com/shopdata/updatecar.php',
+		 	data:{userID:username,goodsID:goodId,number:num.value},
+		 	dataType:'json',
+		 	success:function(data){
+		 		console.log(data);
+		 		switch(data){
+		 			case 0:
+		 			   var ti = document.getElementById('tips');
+		 			   ti.innerHTML="商品添加失败！";
+		 			   $(".dialog").show(100);
+		 			   break;
+		 			case 1:
+		 			   var ti = document.getElementById('tips');
+		 			   ti.innerHTML="商品添加成功！在购物车等亲~";
+		 			   $(".dialog").show(100);
+		 			   break;
+		 		}
+		 	},
+		 	error:function(){
+		 		alert('error!');
+		 	}
+	    });
+    });
+    
+    function minus(){
+    	var num=document.getElementById('num');
+    	if(num.value >0)
+    	num.value = parseInt(num.value)-1;    	
+    }
+    
+     function plus(){
+    	var num=document.getElementById('num');
+    	num.value = parseInt(num.value)+1;    	
+    }
+
+		
+</script>
+</html>
+

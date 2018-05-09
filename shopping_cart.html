@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>set</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+    <script src="js/jquery-2.2.2.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <style>
+    	*{
+    		margin:0;
+    		padding:0;
+    	}
+        /*头部栏尾部栏边框*/
+    	.ui-header{
+    		border-width:0;
+    	}
+    	.ui-footer{
+    		border-width:0;
+    	}    	
+    	/*头部栏尾部栏样式*/   	
+        .ui-bar-inherit{
+    	  background-color:#ff6699 !important;    		
+    	}  
+    	.ui-title{
+    		color:white;
+    		font-family: "微软雅黑";
+    	}	
+    	/*头部栏按钮*/
+    	.ui-btn-icon-notext:after{
+    		background-color:#ff6699;
+    	}
+    	.ui-btn{
+    		border-style:none;
+    		border-color:#DCDCDC;
+    		color:black;
+    	} 
+    	/*背景颜色*/
+    	.ui-page-theme-a{
+    		background-color:#F2F2F2;
+    	}
+        /*商品列表*/
+        #shoplist{
+        	height: 100%;
+        	width:100%;
+        }
+        /*某个商品盒子*/
+        #shop{
+        	float:left;
+        	width:100%;
+        	margin-bottom: 3%;
+        	background-color:#fff;
+        	border-top:1px solid #DCDCDC;
+        	border-bottom:1px solid #DCDCDC;
+        }
+        /*多选框图片盒子*/
+        #cb{
+        	float:left;
+        	height:30%;
+        	width:40%;
+        }
+        #cb img{
+        	height:80%;
+        	width:70%;
+        	margin-top:5%;
+        }
+        /*多选框*/
+        #po{
+        	float:left;
+        	height:1.5rem;
+        	width:1.5rem;
+        	margin-top:30%;
+        	margin-left: 5%;
+        	margin-right:5%;
+        }
+        /*右侧文字盒子*/
+       #words{
+       	     float:left;
+       	     width:58%;
+       	     margin-top:2%;
+       }
+       /*商品名称*/
+       #na{
+       	     height:100%;
+       	     width:100%;
+             font-family: '幼圆';
+             font-weight: bold;
+       }
+       /*商品价格*/
+       #money{
+       	     float:left;
+       	     display: block;
+      	     font-weight: bolder;
+       	     height:15%;
+       	     width:20%;
+       	     color:orangered;
+       	     margin-top:8%;
+       }
+        /*商品数量*/
+       #number{
+       	     float:left;
+       	     display: block;
+      	     font-weight: bolder;
+       	     height:15%;
+       	     width:30%;
+       	     color:gray;
+       	     font-size: 14px;
+       	     margin-top:9%;
+       	     margin-left:45%;
+       }
+       /*删除按钮*/
+      #delete{
+      	    float:right;
+      	    width:10%;
+      	    height:8%;
+      	    margin-right: 3%;
+      	    margin-top: 2%;
+      	    background-color: #fff;
+      }
+      #de{
+      	 width:100%;
+      	 height:100%;
+      }
+    	/*导航*/
+    	.footer{
+    		position:fixed;
+    		bottom:0;
+    		float: left;
+    		width:100%;
+    		background-color: white; 	
+    	}
+    	/*全选总计*/
+    	#he{
+    		height:1rem;
+    		width:65%;
+    	}
+    	#all{
+    		margin-left: 30%;
+    	}
+    	#total{
+    		  color:red;
+    	}
+    	/*结算*/
+    	#settle{
+    		float:right;
+    		width:20%;
+    		height:2.5rem;
+    		padding-top:0.4rem;
+    		margin-top:-3.0rem;
+    		margin-right:0.3rem;
+    		background-color:#FF5599;
+    		color:#fff;
+            font-size: 17px;
+    	}
+    	.ui-page-theme-a .ui-btn{
+    		text-shadow: 0 0px !important;
+    	}
+		.footer ul{
+				float:left;
+				height:3.00rem;
+				width:100%;
+				list-style: none;
+				margin-top:0.16rem;				
+			}
+		.footer ul li{
+				float:left;
+				height:3.00rem;										
+			}
+		.home{ 
+				width:25%;
+				height:3.00rem;
+								
+				}
+	    .home img{
+				float:left;
+				width:50%;
+				margin-left:25%;
+				height:1.5rem;
+				margin-top:0.2rem;					
+				}
+		.home p{
+			    float:left;
+				line-height:1.00rem;
+				font-size:0.90rem;
+				margin-left: 35%;
+				font-family: "微软雅黑";
+				color:#e8205a;
+			}	
+		.fen{
+				width:25%;
+				height:3.00rem;
+				}
+		.fen img{
+				float:left;
+				width:50%;
+				margin-left: 25%;
+				height:1.5rem;
+				margin-top:0.2rem;			
+				}
+		.fen p{
+				float:left;
+				line-height:1.00rem;
+				font-size:0.90rem;
+				margin-left: 35%;
+				font-family: "微软雅黑";
+				color:gray;
+			}	
+		.buy{
+				width:25%;
+				height:3.00rem;
+				}
+		.buy img{
+				float:left;
+				width:50%;
+				margin-left: 25%;
+				height:1.5rem;
+				margin-top:0.2rem;					
+				}
+		.buy p{
+				float:left;
+				line-height:1.00rem;
+				font-size:0.90rem;
+				margin-left: 32%;
+				font-family: "微软雅黑";
+				color:gray;
+			}
+		.mine{
+				width:25%;
+				height:0.75rem;
+				}
+		.mine img{
+				float:left;
+				width:50%;
+				margin-left: 25%;
+				height:1.5rem;
+				margin-top:0.2rem;						
+				}
+		.mine p{
+				float:left;
+				line-height:1.00rem;
+				font-size:0.90rem;
+				margin-left: 35%;
+				font-family: "微软雅黑";
+				color:gray;
+			}	 	
+    </style>
+</head>	
+<body>
+	<div data-role="page">
+		<div data-role="header" data-position="fixed">
+			<a href="index.html"  rel="external" data-icon="carat-l"  data-iconpos="notext"></a>
+			<h1>购物车</h1>			
+		</div>
+          
+			<div id="shoplist"></div>
+			
+		<div  class="footer" data-position="fixed">
+			<div id="foo">	
+				<input type="checkbox" id="quan"/>
+                <label for="quan" id="he" >
+                	<span id="xuan">全选</span>
+                	<span id="all">合计：</span>
+                    <span id="total"></span>                   
+                </label>
+                <button id="settle">结算</button >
+			</div>
+			
+			<ul>
+        		<li class="home" id="c1"><img id="index" src="img/home.png"><p id="shou">首页</p></li>
+        		<li class="fen" id="c2"><img id="sort" src="img/fen.png"><p id="ff">分类</p></li>
+        		<li class="buy" id="c3"><img id="cart" src="img/che.png"><p id="gc">购物车</p></li>
+        		<li class="mine" id="c4"><img id="set" src="img/mine.png"><p id="sh">设置</p></li>
+        	</ul>
+		</div>
+	</div>
+</body>
+<script>
+	/*查看购物车*/
+	var username = localStorage.getItem("username");
+	if(!localStorage.getItem("username")){
+		  window.location.href="new.html";
+	}
+	$.ajax({
+		 	type:'get',
+		 	url:' http://datainfo.duapp.com/shopdata/getCar.php',
+		 	data:{userID:username},
+		 	dataType:'jsonp',
+		 	success:function(data){
+		 		//console.log('aa');
+		 		console.log(data);
+		 		for(var i=0;i<data.length;i++){
+		 			 $("#shoplist").html($("#shoplist").html()+'<div id="shop"><div id="cb" goodId='+data[i].goodsID+'><input class="dian" type="checkbox" id="po"><img src='+data[i].goodsListImg
+		 			 +'></div><div id="words"><p id="na">'+data[i].goodsName.slice(0,21)+'...'+'</p><span id="money">￥'+data[i].price+'</span><span id="number">数量：'+data[i].number +'</span><button id="delete" goodId='+data[i].goodsID+'><img id="de" src="img/delete.png"></button></div></div>');
+		 		}
+		 		/*删除*/
+		 		$('button').on("click",function(){
+		            var goodId = this.getAttribute("goodId");
+		            //console.log('cc');
+	            	$.ajax({
+			           type:'get',
+			           url:'http://datainfo.duapp.com/shopdata/updatecar.php',
+			           data:{userID:username,goodsID:goodId,number:0},
+			           success:function(data){
+				            //console.log('bb');
+				            window.location.href="shopping_cart.html";
+			             },
+			            error:function(){
+				        alert("error!");
+			            }
+		            });
+	             });
+	            /* 总计*/
+               var dian = document.getElementsByClassName("dian");
+		       $('#cb input[type="checkbox"]').change(function(){
+			       var count=0;
+			       var total=document.getElementById('total');
+			       total.innerHTML = 0;
+			       for (var i=0;i<data.length;i++){
+				       if(dian[i].checked){
+					   var price=data[i].price*data[i].number;
+					   count += price;					
+					   total.innerHTML=count;
+				     }
+			      }
+		       });
+		       /*全选*/
+		      var quan = document.getElementById("quan");  
+		      $("#quan").click(function(){ 				
+				    if(quan.checked){  
+				        for(var i = 0; i < dian.length; i++){ 
+				            dian[i].checked = true; 				            
+				        }
+				        var count = 0;
+				        for (var i=0;i<dian.length;i++){
+							if(dian[i].checked){
+								var price=data[i].price*data[i].number;
+								count += price;					
+								total.innerHTML=count;
+							}
+						}
+				    }else{  
+				        for(var i = 0; i < dian.length; i++){ 
+				            dian[i].checked = false; 
+				            total.innerHTML=0;
+				        }  
+				    }  
+		    	});
+		  },
+		 	error:function(){
+		 		alert("ERROR!");
+		 	}
+	   });
+	
+	/*导航点击变色*/ 
+   
+   	$(document).ready(function(){
+   		$('#c1').click(function(){
+   			$('#c1').css({backgroundColor:'#FF69B4'})
+   		});
+   		$('#c2').click(function(){
+   			$('#c2').css({backgroundColor:'#FF69B4'})
+   		});
+   		$('#c3').click(function(){
+   			$('#c3').css({backgroundColor:'#FF69B4'})
+   			
+   		});
+   		$('#c4').click(function(){
+   			$('#c4').css({backgroundColor:'#FF69B4'})
+   		});
+   	});
+   	/*首页页面跳转*/
+   	   $(document).ready(function(){
+   	    $('#index').click(function(){
+   	 	window.location.href="index.html";
+   	    });
+      });
+   	
+   /*分类页面跳转*/
+    $(document).ready(function(){
+   	    $('#sort').click(function(){
+   	 	window.location.href="sort.html";
+   	 });
+   });
+   
+   $(document).ready(function(){
+   	 $('#cl').click(function(){
+   	 	window.location.href="sort.html";
+   	 });
+   });
+   /*购物车页面跳转*/
+   $(document).ready(function(){
+   	 $('#cart').click(function(){
+   	 	window.location.href="shopping_cart.html";
+   	 });
+   });
+   
+   $(document).ready(function(){
+   	 $('#gc').click(function(){
+   	 	window.location.href="shopping_cart.html";
+   	 });
+   });
+   /*设置页面跳转*/
+   $(document).ready(function(){
+   	 $('#set').click(function(){
+   	 	window.location.href="set.html";
+   	 });
+   });
+   
+   $(document).ready(function(){
+   	 $('#sh').click(function(){
+   	 	window.location.href="set.html";
+   	 });
+   });
+   
+	
+</script>
+</html>

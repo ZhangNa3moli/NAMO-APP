@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,minimum-scale=1, maximum-scale=1.0, user-scalable=no" />
+    <title>首页</title>
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="css/swiper-3.3.1.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <script src="js/jquery-2.2.2.js"></script>
+    <script src="js/swiper-3.3.1.jquery.min.js"></script>
+    <script src="js/swiper.animate1.0.2.min.js"></script>
+    <!-- Demo styles -->
+    <style>
+    	*{
+    		margin:0;
+    		padding:0;
+    	}
+    	.index{
+    		height:100%;
+    		width:100%;
+    		
+    	}
+    	/*header*/
+    	.header{
+    		width:100%;
+    		height:2.45rem;
+    		background-color:#ff6699;
+    		
+    	}
+    	/*搜索栏*/
+    	.search{
+    		width:84%;
+    		height:2.40rem;
+    		margin-left:8%;	
+    	}
+    	/*搜索符号图片*/
+    	#sou{
+    		width:1.98rem;
+    		height:2.18rem;
+    		margin-top:0.21rem;
+    	}
+    	/*搜索框*/
+    	#sea{
+    		float:right;
+    		width:88%;
+    		height:2.10rem;
+    		color:white;    		
+    		background-color: #ff6699; 
+    		border:0px;   	
+    		border-bottom: 2px solid #FFC0CB;
+    		margin-top:0rem;
+    	}
+    	#pull{
+    		background-color: white;    		
+    		position:absolute;
+    		z-index:2;
+    		
+    	}
+    	#pull ul li a{
+    		text-decoration: none;
+    		color:gray;
+    	}
+    	#pull ul{
+			width:20rem;	
+			margin: 0 auto;			
+		}
+		#pull ul li{
+			list-style: none;
+			font-family:"黑体";
+			font-size:14px;
+			line-height: 30px;
+			font-weight: bold;			
+		}
+
+    	/*swiper*/
+    	.swiper-container{
+    		width:100%;
+    		height:8.40rem;
+    		margin-top:0rem;   		
+    		z-index:1;  		
+    	}
+    	/*swiper图片*/
+    	.swiper-wrapper img{
+    		width:100%;
+    		height:100%;
+    		 
+    	}
+    	/*main*/
+    	.main{
+    		width:100%;
+    	}
+    	/*分类*/
+    	#classlist{
+    		width:100%;
+    	}
+    	#lei li{
+    		float:left;
+    		list-style: none;   		
+    		width:25%;
+    		
+    	}
+    	#lei li img{
+    		width:100%;
+    	}
+    	#lei p{
+    		font-family:'微软雅黑';
+    		font-size:15px;
+    		text-align:center;
+    	}
+    	#sale{
+    		margin-top:5%;
+    	}
+    	#ev{
+    		margin-top:-0.1rem;
+    	}
+    	/*商品列表*/
+    	#goodlist{
+    		float:left;
+    		width:100%;
+    		margin-top:0.5rem;
+    		border-top: 2px solid orangered;
+    	}
+    	#popular{
+    		float:left;
+    		list-style: none;
+    		border:1px solid darkgray;
+    		width:49%;
+    	}
+    	#popular img{
+    		width:100%;
+    		height:10rem;
+    		
+    	}
+    	#popular p{
+    		font-family: "微软雅黑";
+    		font-weight:600;
+    		text-align: center;
+    	}
+    	/*导航*/
+    	.footer{
+    		position:fixed;
+    		bottom:0;
+    		float: left;
+    		width:100%;
+    		height:3.00rem;
+    		background-color: white; 	
+    	}
+		.footer ul{
+				float:left;
+				height:3.00rem;
+				width:100%;
+				list-style: none;
+				margin-top:0.16rem;	
+						
+			}
+		.footer ul li{
+				float:left;
+				height:3.00rem;	
+				
+											
+			}
+		.home{
+				width:25%;
+				height:3.00rem;
+				}
+	    .home img{
+				float:left;
+				width:50%;
+				margin-left: 25%;
+				height:1.5rem;
+				margin-top:0.2rem;					
+				}
+		.home p{
+			    float:left;
+				line-height:1.00rem;
+				font-size:0.90rem;
+				margin-left: 35%;
+				font-family: "微软雅黑";
+				color:#e8205a;
+			}	
+		.fen{
+				width:25%;
+				height:3.00rem;
+				}
+		.fen img{
+				float:left;
+				width:50%;
+				margin-left: 25%;
+				height:1.5rem;
+				margin-top:0.2rem;			
+				}
+		.fen p{
+				float:left;
+				line-height:1.00rem;
+				font-size:0.90rem;
+				margin-left: 35%;
+				font-family: "微软雅黑";
+				color:gray;
+			}	
+		.buy{
+				width:25%;
+				height:3.00rem;
+				}
+		.buy img{
+				float:left;
+				width:50%;
+				margin-left: 25%;
+				height:1.5rem;
+				margin-top:0.2rem;					
+				}
+		.buy p{
+				float:left;
+				line-height:1.00rem;
+				font-size:0.90rem;
+				margin-left: 32%;
+				font-family: "微软雅黑";
+				color:gray;
+			}
+		.mine{
+				width:25%;
+				height:0.75rem;
+				}
+		.mine img{
+				float:left;
+				width:50%;
+				margin-left: 25%;
+				height:1.5rem;
+				margin-top:0.2rem;						
+				}
+		.mine p{
+				float:left;
+				line-height:1.00rem;
+				font-size:0.90rem;
+				margin-left: 35%;
+				font-family: "微软雅黑";
+				color:gray;
+			}	
+    </style>
+     <!-- Swiper JS -->
+   
+</head>
+<body>
+	 <div class="index">
+	 	<!--搜索框-->
+	 	<div class="header">
+	 		<div class="search"><img id="sou" src="img/sou.png"><input  id="sea" type="search" placeholder="毛衣女原宿风"><div id="pull"></div></div>
+	    </div>
+	 		
+	 	<!-- Swiper -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="img/s1.png"></div>
+                <div class="swiper-slide"><img src="img/s2.png"></div>
+                <div class="swiper-slide"><img src="img/s3.png"></div>
+                <div class="swiper-slide"><img src="img/s4.png"></div>
+                <div class="swiper-slide"><img src="img/s5.png"></div>
+                <div class="swiper-slide"><img src="img/s6.png"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        
+        <div class="main">
+             <!--分类-->
+            <div id="classlist">
+            	<ul id="lei">
+            		<li><img src="img/pin.png"><p>超值拼团</p></li>
+            		<li><img src="img/fashion.png"><p>时尚种草</p></li>
+            		<li><img  id="sale" src="img/hot.png"><p id="ev">大家都买</p></li>
+            		<li><img src="img/day.png"><p>签到领券</p></li>
+            	</ul>
+            </div>
+        	
+            <!--goodList-->        
+            <div id="goodlist">
+            	<ul id="goods"></ul>
+            </div>
+        </div>
+        <!--导航-->
+        <div class="footer" data-position="fixed">
+        	<ul>
+        		<li class="home" id="c1" ><img src="img/home.png"><p>首页</p></li>
+        		<li class="fen" id="c2" ><img  id="sort" src="img/fen.png"><p id="ff">分类</p></li>
+        		<li class="buy" id="c3" ><img  id="cart" src="img/che.png"><p id="gc">购物车</p></li>
+        		<li class="mine" id="c4"><img  id="set" src="img/mine.png"><p id="sh">设置</p></li>
+        	</ul>
+        </div>
+	</div>
+	
+</body>
+
+<script type="text/javascript">
+	if(!localStorage.getItem('animation')){
+	        window.location.href="animation.html";
+	}
+    //搜索框
+    var sea = document.getElementById('sea');
+    $('#sea').on('input',function(){
+    	$.ajax({
+    		type:'get',
+    		url:'http://datainfo.duapp.com/shopdata/selectGoodes.php',
+    		dataType:'jsonp',
+    		data:{selectText:sea.value,pageCode:0,linenumber:10},
+    		success:function(data){
+    			console.log(data);
+    			pull.innerHTML=" ";
+    			var ul = document.createElement('ul');
+    			document.getElementById('pull').appendChild(ul);
+    			for(var i=0;i<data.length;i++){
+    				var li = document.createElement('li');
+    				ul.appendChild(li);
+    				li.innerHTML='<a href="#">'+data[i].goodsName+'</a>';
+    			}
+    		},
+    		error:function(){
+    			alert('Error!');
+    		}
+    	})
+    })
+    //Initialize Swiper 
+    $(document).ready(function(){
+    var swiper = new Swiper('.swiper-container', {
+        direction:'horizontal',
+        loop:true,
+        pagination: '.swiper-pagination',  
+        autoplay:2000
+    });
+  });
+
+/*热销商品列表*/
+$.ajax({ 
+	 type:'get',  	 
+	 url:'http://datainfo.duapp.com/shopdata/getGoods.php',
+	 dataType:'jsonp',
+	 data:{classID:5,pageCode:0,linenumber:10},
+	 success:function(data){
+	 	    console.log(data);
+	 	    for(var i=0;i<data.length;i++){
+	        $('#goodlist').html($('#goodlist').html()+`<li id="popular" goodId=`+data[i].goodsID+`><img src="`+data[i].goodsListImg+`" alt=""><p>`+data[i].goodsName.slice(0,6)+`...`+`</p></li>`);
+	 	    }
+	 	    $('#goodlist>li').on('click',function(){ //后边跟上#号表示哈希值键值对
+              window.location.href="info.html#"+this.getAttribute('goodId');      
+           });
+	 	},
+     error:function(){
+    	 alert('Error!');
+    	}   
+});
+ /*导航点击变色*/ 
+   
+   	$(document).ready(function(){
+   		$('#c1').click(function(){
+   			$('#c1').css({backgroundColor:'#FF69B4'})
+   		});
+   		$('#c2').click(function(){
+   			$('#c2').css({backgroundColor:'#FF69B4'})
+   		});
+   		$('#c3').click(function(){
+   			$('#c3').css({backgroundColor:'#FF69B4'})
+   			
+   		});
+   		$('#c4').click(function(){
+   			$('#c4').css({backgroundColor:'#FF69B4'})
+   		});
+   	});
+  /*分类页面跳转*/
+   $(document).ready(function(){
+   	 $('#sort').click(function(){
+   	 	window.location.href="sort.html";
+   	 });
+   });
+   
+   $(document).ready(function(){
+   	 $('#cl').click(function(){
+   	 	window.location.href="sort.html";
+   	 });
+   });
+   /*购物车页面跳转*/
+   $(document).ready(function(){
+   	 $('#cart').click(function(){
+   	 	window.location.href="shopping_cart.html";
+   	 });
+   });
+   
+   $(document).ready(function(){
+   	 $('#gc').click(function(){
+   	 	window.location.href="shopping_cart.html";
+   	 });
+   });
+   /*设置页面跳转*/
+   $(document).ready(function(){
+   	 $('#set').click(function(){
+   	 	window.location.href="set.html";
+   	 });
+   });
+   
+   $(document).ready(function(){
+   	 $('#sh').click(function(){
+   	 	window.location.href="set.html";
+   	 });
+   });
+   
+   
+// 		document.addEventListener('plusready', function(){
+// 			//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
+// 			
+// 		});
+   		
+</script>
+</html>
